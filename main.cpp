@@ -9,7 +9,7 @@ int WIN_HACK() {
     si.dwFlags = STARTF_USESHOWWINDOW;
     si.wShowWindow = SW_HIDE;
 
-    CreateProcess(NULL, (LPSTR)command, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
+    CreateProcess(NULL, (LPWSTR)command, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi);
     WaitForSingleObject(pi.hProcess, INFINITE);
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
@@ -24,19 +24,19 @@ int MENU() {
     std::cout << "Enter your choice: ";
     std::cin >> choice;
     switch (choice) {
-        case 1:
-            WIN_HACK();
-            std::cout << "Windows activated successfully.\n";
-            break;
-        case 2:
-            std::cout << "Exiting...\n";
-            break;
-        default:
-            std::cout << "Invalid choice. Please try again.\n";
-            MENU();
-            break;
+    case 1:
+        WIN_HACK();
+        std::cout << "Windows activated successfully.\n";
+        break;
+    case 2:
+        std::cout << "Exiting...\n";
+        break;
+    default:
+        std::cout << "Invalid choice. Please try again.\n";
+        MENU();
+        break;
     }
-	return 0;
+    return 0;
 
 }
 
